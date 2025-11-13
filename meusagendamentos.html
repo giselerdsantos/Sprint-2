@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meus Agendamentos</title>
+
+  <!-- NOVO CSS -->
+  <link rel="stylesheet" href="meusagendamentos.css">
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- TOPO -->
+  <header class="topo">
+    <button id="btn-menu" class="menu-toggle">☰</button>
+    <div class="topo-direita">
+      <div class="pesquisa">
+        <input id="busca" type="text" placeholder="Buscar agendamento...">
+      </div>
+      <i class="fa-solid fa-user icone-usuario"></i>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="container">
+    
+    <!-- MENU LATERAL -->
+    <aside class="menu-servicos" id="menu-servicos">
+      <h3>MENU</h3>
+      <nav class="menu-links">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Início</a>
+        <a href="saloes.html"><i class="fa-solid fa-building"></i> Salões</a>
+        <a href="meusagendamentos.html" class="ativo"><i class="fa-solid fa-calendar-days"></i> Meus Agendamentos</a>
+      </nav>
+    </aside>
+
+    <!-- ÁREA DE CONTEÚDO -->
+    <section class="conteudo">
+      <div class="cabecalho-agendamentos">
+        <i class="fa-solid fa-calendar-check icone-cabecalho"></i>
+        <div>
+          <h2>Meus Agendamentos</h2>
+          <p>Acompanhe seus próximos agendamentos e avalie os anteriores.</p>
+        </div>
+      </div>
+
+      <!-- Próximos Agendamentos -->
+      <div id="agendamentos-futuros" class="lista-agendamentos"></div>
+      
+
+
+      <!-- Agendamentos Anteriores -->
+      <div class="secao-agendamentos">
+        <h3>Agendamentos Anteriores</h3>
+        <div id="agendamentos-anteriores" class="lista-agendamentos"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-info">
+        <img src="imagens/hm.png" alt="Logo Hora Marcada" class="logo-footer">
+        <p>Conectando você aos melhores salões e profissionais de beleza da sua região.</p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2025 HORA MARCADA - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- NOVO JS -->
+  <script src="meusagendamentos.js"></script>
+</body>
+</html>

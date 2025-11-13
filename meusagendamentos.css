@@ -1,0 +1,432 @@
+/* ===========================
+   RESET E BASE
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lora', serif;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ===========================
+   TOPO
+=========================== */
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  background-color: #661111;
+  color: white;
+}
+
+.topo-direita {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.pesquisa {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.pesquisa input {
+  padding: 8px 35px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  background-color: #fff;
+  color: #000;
+  width: 230px;
+}
+
+.pesquisa::before {
+  content: "\f002";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 12px;
+  color: #555;
+  font-size: 1rem;
+}
+
+.icone-usuario {
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.icone-usuario:hover {
+  color: #f1d03c;
+}
+
+/* ===========================
+   LAYOUT PRINCIPAL
+=========================== */
+.container {
+  display: flex;
+  flex: 1;
+}
+
+/* MENU LATERAL */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background-color 0.1s, transform 0.2s;
+}
+
+.menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+.menu-servicos {
+  width: 230px;
+  background-color: #080808;
+  border-right: 1px solid #ffffff;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+  z-index: 1000;
+}
+
+.menu-servicos.fechado {
+  transform: translateX(-100%);
+}
+
+.menu-servicos h3 {
+  margin: 15px;
+}
+
+.menu-servicos a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s;
+}
+
+.menu-servicos a:hover {
+  background-color: #660a0a;
+}
+
+.menu-servicos a.ativo {
+  background-color: #661111;
+  font-weight: bold;
+}
+
+/* ===========================
+   CONTEÚDO PRINCIPAL
+=========================== */
+.conteudo {
+  flex: 1;
+  padding: 40px 30px;
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabecalho-agendamentos {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.icone-cabecalho {
+  font-size: 2.2rem;
+  color: #f1d03c;
+}
+
+.cabecalho-agendamentos h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.cabecalho-agendamentos p {
+  font-size: 1rem;
+  color: #d1d1d1;
+}
+
+/* ===========================
+   SEÇÕES DE AGENDAMENTOS
+=========================== */
+.secao-agendamentos {
+  margin-top: 40px;
+}
+
+.secao-agendamentos h3 {
+  font-size: 1.5rem;
+  color: #f1d03c;
+  margin-bottom: 15px;
+}
+
+.lista-agendamentos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+/* ===========================
+   CARD DE AGENDAMENTO
+=========================== */
+.card-agendamento {
+  background-color: #661111;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-agendamento:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 14px rgba(255, 255, 255, 0.1);
+}
+
+.card-agendamento h4 {
+  color: #f1d03c;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+}
+
+.card-agendamento p {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.card-agendamento .data-hora {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+.card-agendamento .status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status.confirmado {
+  background-color: #0c9c18;
+  color: #fff;
+}
+
+.status.pendente {
+  background-color: #f1d03c;
+  color: #000;
+}
+
+.status.cancelado {
+  background-color: #660a0a;
+  color: #fff;
+}
+
+.card-agendamento .acoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.card-agendamento button {
+  flex: 1;
+  background-color: transparent;
+  border: 1px solid #f1d03c;
+  color: #f1d03c;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  margin: 0 4px;
+}
+
+.card-agendamento button:hover {
+  background-color: #f1d03c;
+  color: #000;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-top: 2px solid #661111;
+  width: 100%;
+}
+
+footer .logo-footer {
+  width: 150px;
+  height: auto;
+  opacity: 1;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+footer .logo-footer:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+@media (max-width: 768px) {
+  .conteudo {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .menu-servicos {
+    position: fixed;
+    top: 60px;
+    transform: translateX(-100%);
+  }
+
+  .menu-servicos.aberto {
+    transform: translateX(0);
+  }
+
+  .lista-agendamentos {
+    justify-content: center;
+  }
+
+  .card-agendamento {
+    width: 90%;
+  }
+}
+/* --- GRID E CARDS (tamanho médio, moderno) --- */
+
+.lista-agendamentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+/* cartão de tamanho médio */
+.card-agendamento {
+  background-color: #661111;
+  border-radius: 14px;
+  padding: 18px;
+  min-height: 150px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-agendamento:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+/* conteúdo interno */
+.card-agendamento h4 {
+  color: #f1d03c;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+  font-family: 'Playfair Display', serif;
+}
+
+.card-agendamento .data-hora {
+  color: #e6e6e6;
+  font-size: 0.96rem;
+  margin-bottom: 8px;
+}
+
+.card-agendamento p {
+  color: #fff;
+  font-size: 0.98rem;
+  margin: 4px 0;
+  line-height: 1.35;
+}
+
+/* status e ações na mesma linha */
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.status.confirmado { background:#0c9c18; color:#fff; }
+.status.pendente   { background:#f1d03c; color:#000; }
+.status.cancelado  { background:#660a0a; color:#fff; }
+
+.card-actions {
+  display:flex;
+  gap:8px;
+}
+
+.card-actions button {
+  background: transparent;
+  border: 1px solid #f1d03c;
+  color: #f1d03c;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight:600;
+}
+
+.card-actions button.cancel {
+  border-color:#ff6b6b;
+  color:#ff6b6b;
+}
+
+.card-actions button:hover {
+  background:#f1d03c;
+  color:#000;
+}
+
+@media (max-width: 700px) {
+  .lista-agendamentos {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .card-agendamento { min-height: 130px; padding: 14px; }
+}
