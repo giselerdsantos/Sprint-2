@@ -11,17 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let dadosAgendamentos = [];
 
-  fetch("./meusagendamentos.json")
-    .then(r => {
-      if (!r.ok) throw new Error("Falha ao carregar JSON");
-      return r.json();
-    })
+  fetch("https://raw.githubusercontent.com/giselerdsantos/Sprint-2/main/meusagendamentos.json")
+    .then(r => r.json())
     .then(data => {
       dadosAgendamentos = data;
       renderizarLista(data);
-    })
-    .catch(err => {
-      console.error("Erro ao buscar agendamentos:", err);
     });
 
   function renderizarLista(lista) {
@@ -78,21 +72,11 @@ function criarCardAgendamento(ag) {
 
   if (botaoCancelar) {
     botaoCancelar.addEventListener("click", () => {
-      fetch("/cancelar", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          profissional: ag.profissional,
-          data: ag.data,
-          hora: ag.hora
-        })
-      }).then(() => {
-        ag.status = "Cancelado";
-        const status = card.querySelector(".status");
-        status.className = "status cancelado";
-        status.textContent = "Cancelado";
-        botaoCancelar.remove();
-      });
+      ag.status = "Cancelado";
+      const status = card.querySelector(".status");
+      status.className = "status cancelado";
+      status.textContent = "Cancelado";
+      botaoCancelar.remove();
     });
   }
 
