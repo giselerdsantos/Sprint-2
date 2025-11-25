@@ -11,11 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let dadosAgendamentos = [];
 
-  fetch("/agendamentos")
-    .then(r => r.json())
+  fetch("./meusagendamentos.json")
+    .then(r => {
+      if (!r.ok) throw new Error("Falha ao carregar JSON");
+      return r.json();
+    })
     .then(data => {
       dadosAgendamentos = data;
       renderizarLista(data);
+    })
+    .catch(err => {
+      console.error("Erro ao buscar agendamentos:", err);
     });
 
   function renderizarLista(lista) {
@@ -63,7 +69,7 @@ function criarCardAgendamento(ag) {
       <span class="status ${ag.status.toLowerCase()}">${ag.status}</span>
       <div class="card-actions">
         ${ag.status === "Agendado" || ag.status === "Confirmado" ? `<button class="cancel">Cancelar</button>` : ""}
-        ${ag.status === "Concluído" ? `<button class="avaliar">Avaliar</button>` : ""}
+        ${ag.status === "Concluído" ? `<button>Avaliar</button>` : ""}
       </div>
     </div>
   `;
@@ -87,14 +93,6 @@ function criarCardAgendamento(ag) {
         status.textContent = "Cancelado";
         botaoCancelar.remove();
       });
-    });
-  }
-
-  const botaoAvaliar = card.querySelector(".avaliar");
-
-  if (botaoAvaliar) {
-    botaoAvaliar.addEventListener("click", () => {
-      window.location.href = "avaliar.html";
     });
   }
 
