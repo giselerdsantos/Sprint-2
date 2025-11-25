@@ -4,7 +4,14 @@
     "servico": "Corte Feminino",
     "data": "2025-12-18",
     "hora": "14:30",
-    "status": "Confirmado"
+    "status": "Agendado"
+  },
+  {
+    "profissional": "Paloma Fernandes",
+    "servico": "Maquiagem Social",
+    "data": "2025-12-24",
+    "hora": "14:30",
+    "status": "Agendado"
   },
   {
     "profissional": "João Souza",
@@ -18,7 +25,7 @@
     "servico": "Manicure e Pedicure",
     "data": "2025-11-30",
     "hora": "09:30",
-    "status": "Pendente"
+    "status": "Agendamento Pendente"
   },
   {
     "profissional": "Vanessa Lima",

@@ -240,8 +240,10 @@ html, body {
 }
 
 .status.confirmado { background:#0c9c18; color:#fff; }
+.status.agendado { background:#0c9c18; color:#fff; }
 .status.pendente { background:#f1d03c; color:#000; }
-.status.cancelado { background:#660a0a; color:#fff; }
+.status.cancelado { background:#ff4d4d; color:#fff; }
+.status.concluído { background:#28a745; color:#fff; }
 
 .card-actions {
   display:flex;
